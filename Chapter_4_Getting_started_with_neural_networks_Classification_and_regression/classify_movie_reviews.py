@@ -10,7 +10,8 @@ def get_imdb_dataset(num_words=10000):
     :return:
     """
 
-    (train_data, train_labels), (test_data, test_labels) = tf.keras.datasets.imdb.load_data(num_words=num_words)
+    (train_data, train_labels), (test_data, test_labels) = tf.keras.datasets.imdb.\
+        load_data(num_words=num_words)
 
     return train_data, train_labels, test_data, test_labels
 
@@ -140,3 +141,6 @@ plot_train_val_accuracy(train_loss_values=history.history['loss'],
 
 plot_train_val_accuracy(train_acc_values=history.history['accuracy'],
                         val_acc_values=history.history['val_accuracy'])
+
+# Test model
+test_result = model.evaluate(x_test, y_test)
